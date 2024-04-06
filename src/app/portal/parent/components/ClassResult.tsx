@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 
 interface ClassResultInterface {
@@ -5,9 +6,11 @@ interface ClassResultInterface {
     id: string;
 }
 
-const ClassResult: React.FC<ClassResultInterface> = ({ name }) => {
+const ClassResult: React.FC<ClassResultInterface> = ({ name, id }) => {
   return (
-    <div className='w-full flex items-center justify-center py-4 px-5 border-[1px] border-neutral-200 rounded-md relative'>
+    <div className='w-full flex items-center justify-center py-4 px-5 border-[1px] border-neutral-200 rounded-md relative'  onClick={() => {
+      window.location.replace(`/class/${id}`)
+  }}>
         <h1 className='text-xl font-semibold trackig-tight'>{name}</h1>
         {/* <p className='text-sm opacity-50 mt-3'>Share this code to parents!</p>
         <div className='mt-2 w-full py-2 px-3 bg-neutral-100 border-[1px] z-[50] relative border-neutral-200 rounded-md cursor-auto'>

@@ -3,12 +3,12 @@ import { redirect } from "next/navigation";
 import { verifyJwt } from "@/utils/jwt";
 
 export const metadata = {
-  title: "ClassCast | Portal",
+  title: "ClassCast | ClassView",
   description: "ClassCast - Educate Hacks '24",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export default function PortalLayout({
+export default function ClassLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ export default function PortalLayout({
     }    
   return (
     <>
-        <main className="w-full mt-12 max-w-[calc(1000px+4rem)] px-8 ml-auto mr-auto">
+        <main className="w-full mt-12 max-w-[calc(1300px+4rem)] px-8 ml-auto mr-auto">
           {children}
         </main>
     </>

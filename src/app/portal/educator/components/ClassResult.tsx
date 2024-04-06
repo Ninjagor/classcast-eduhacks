@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 
 interface ClassResultInterface {
@@ -13,7 +14,9 @@ const ClassResult: React.FC<ClassResultInterface> = ({ name, id }) => {
         <div className='mt-2 w-full py-2 px-3 bg-neutral-100 border-[1px] z-[50] relative border-neutral-200 rounded-md cursor-auto'>
             <p className='opacity-50'>{id}</p>
         </div>
-        <div className='w-full z-[0] h-full absolute top-0 left-0 rounded-md cursor-pointer' />
+        <div className='w-full z-[0] h-full absolute top-0 left-0 rounded-md cursor-pointer'  onClick={() => {
+        window.location.replace(`/class/${id}`)
+    }}/>
     </div>
   )
 }
