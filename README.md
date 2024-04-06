@@ -1,29 +1,22 @@
-# Create T3 App
+# ClassCast
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Hello! This is the repo of ClassCast, created by Rohit K. for the EducateHacks Hackathon!
 
-## What's next? How do I make an app with this?
+## Problem it tackles:
+Parents usually do not know what is going on at school. This includes things like what activities are going on, as well as other things such as HW which has been assigned and opportunities for their children.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Solution
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+ClassCast acts like a "connection" between the classroom and parents. Teachers are able to broad-"cast" events happening in the classroom via an "update board". They can also tag images so parents get a better idea of what is happening, and can feel more immersed and connected with their child.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Screenshots
 
-## Learn More
+![alt text](image.png)
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+![alt text](image-1.png)
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+![alt text](image-2.png)
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+![alt text](image-3.png)
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+![alt text](image-4.png)
