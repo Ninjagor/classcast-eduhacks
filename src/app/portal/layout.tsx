@@ -22,7 +22,9 @@ export default function SignupLayout({
     }    
   return (
     <>
-        {children}
+        <main className="w-full mt-12 max-w-[calc(1000px+4rem)] px-8 ml-auto mr-auto">
+          {children}
+        </main>
     </>
   );
 }

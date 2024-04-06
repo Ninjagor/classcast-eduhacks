@@ -17,11 +17,14 @@ model Class {
 }
 
 model ParentClass {
-    id String @id @default(cuid())
     parent Parent @relation(fields: [parentId], references: [id])
     parentId String 
     class Class @relation(fields: [classId], references: [id])
     classId String
+
+    @@id([classId, parentId])
+    @@index([classId])
+    @@index([parentId])
 }
 
 model Educator {

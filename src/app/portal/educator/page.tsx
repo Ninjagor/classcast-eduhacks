@@ -1,6 +1,8 @@
 import React from 'react'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import TopBar from './components/TopBar';
+import ClassResults from './components/ClassResults';
 
 const EducatorPortal = () => {
   const cookieStore = cookies();
@@ -8,7 +10,10 @@ const EducatorPortal = () => {
     redirect("/portal")
   }
   return (
-    <div>EducatorPortal</div>
+    <>
+      <TopBar />
+      <ClassResults />
+    </>
   )
 }
 
