@@ -1,0 +1,79 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Class {
+    id String @id @default(cuid())
+    name String 
+    educator Educator @relation(fields: [educatorId], references: [id])
+    educatorId String
+    parents ParentClass[]
+    updates ClassUpdate[]
+}
+
+model ParentClass {
+    id String @id @default(cuid())
+    parent Parent @relation(fields: [parentId], references: [id])
+    parentId String 
+    class Class @relation(fields: [classId], references: [id])
+    classId String
+}
+
+model Educator {
+    id String @id @default(uuid())
+    name String
+    email String @unique
+    password String
+    classes Class[]
+    comments EducatorComment[]
+}
+
+model Parent {
+    id String @id @default(uuid())
+    name String
+    email String @unique
+    password String
+    classes ParentClass[]
+    comments ParentComment[]
+}
+
+model Image {
+    id String @id @default(cuid())
+    image_url String
+    classUpdate ClassUpdate @relation(fields: [classUpdateId], references: [id])
+    classUpdateId String
+}
+
+model ClassUpdate {
+    id String @id @default(cuid())
+    updateTitle String
+    updateDescription String? @db.Text
+    images Image[]
+    class Class @relation(fields: [classId], references: [id])
+    classId String
+    parentComments ParentComment[]
+    educatorComments EducatorComment[]
+}
+
+model ParentComment {
+    id String @id @default(cuid())
+    contents String @db.Text
+    parent Parent @relation(fields: [parentId], references: [id])
+    parentId String 
+    classUpdate ClassUpdate @relation(fields: [classUpdateId], references: [id])
+    classUpdateId String
+}
+
+model EducatorComment {
+    id String @id @default(cuid())
+    contents String @db.Text
+    educator Educator @relation(fields: [educatorId], references: [id])
+    educatorId String 
+    classUpdate ClassUpdate @relation(fields: [classUpdateId], references: [id])
+    classUpdateId String
+}
