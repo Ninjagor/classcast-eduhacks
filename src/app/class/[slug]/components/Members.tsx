@@ -45,7 +45,6 @@ const Members: React.FC<MembersInterface> = ({ classId }) => {
   // eslint-disable-next-line
   const [data, setData] = useState<DataDTO | null>(null);
   useEffect(() => {
-    //
     axios.post("/api/class/getmembers", {
         classId: classId
     }).then((data) => {

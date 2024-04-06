@@ -10,7 +10,7 @@ export async function POST(
             return new NextResponse("Invalid request body", { status: 400 });
         } else {
             const body: CreateUpdateBodyInterface = await req.json() as CreateUpdateBodyInterface;
-            const{contents,classId,title} = body;
+            const{contents,classId,title,image} = body;
 
             if (!contents || !classId || !title) {
                 return new NextResponse("Incomplete Request Parameters", { status: 400 });
@@ -33,6 +33,15 @@ export async function POST(
                     classId: classId
                 }
             });
+
+            if (image) {
+                const img = await db.image.create({
+                    data: {
+                        image_url: image,
+                        classUpdateId: new_post.id
+                    }
+                })
+            }
 
             return NextResponse.json({ "data": "sucess" }, { status: 201 });
 

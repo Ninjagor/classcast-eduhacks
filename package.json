@@ -13,6 +13,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.19.0",
     "@prisma/client": "^5.10.2",
     "@t3-oss/env-nextjs": "^0.9.2",
     "@types/bcrypt": "^5.0.2",

@@ -23,7 +23,22 @@ export async function POST(
                 }
             });
 
-            return NextResponse.json({ "data": updates }, { status: 200 });
+            const details = [];
+
+            for (const update of updates) {
+                const images = await db.image.findFirst({
+                    where: {
+                        classUpdateId: update.id
+                    }
+                });
+                const detail = {
+                    update: update,
+                    image: images
+                };
+                details.push(detail)
+            }
+
+            return NextResponse.json({ "data": details }, { status: 200 });
         }
     } catch(error) {
         console.log('[FINDMANY_UPDATE_ERROR]', error);

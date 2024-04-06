@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { getCookie } from 'cookies-next'
 import axios from 'axios'
 import LoadUpdates from './LoadUpdates';
+import ImageUpload from './ImageLoader';
 
 interface UpdatesInterface {
     classId: string;
@@ -14,6 +15,7 @@ const Updates: React.FC<UpdatesInterface> = ({ classId }) => {
   const [title, setTitle] = useState<string | null>(null);
   const [content, setContent] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [imageBlob, setImageBlob] = useState(null);
   useEffect(() => {
     const role = getCookie("role");
     if (!role) {
@@ -32,7 +34,8 @@ const Updates: React.FC<UpdatesInterface> = ({ classId }) => {
         axios.post("/api/update/create", {
             contents: content,
             title: title,
-            classId: classId
+            classId: classId,
+            image: imageBlob
         }).then((data) => {
             console.log(data);
             window.location.reload();
@@ -51,6 +54,7 @@ const Updates: React.FC<UpdatesInterface> = ({ classId }) => {
   const updateContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setContent(() => e.target.value);
   }
+
   return (
     <>
 
@@ -78,6 +82,11 @@ const Updates: React.FC<UpdatesInterface> = ({ classId }) => {
                 <h1 className='text-2xl font-semibold tracking-tight'>Create Update</h1>
                 <input placeholder='Enter Update Title' className='w-full border-[1px] border-neutral-200 focus:outline-none rounded-md px-5 py-2 mt-3' onChange={updateTitle}></input>
                 <textarea placeholder='Enter Update Content' className='w-full border-[1px] border-neutral-200 max-h-[400px] h-[150px] focus:outline-none rounded-md px-5 py-2 mt-3' onChange={updateContent}></textarea>
+                <ImageUpload 
+                //eslint-disable-next-line
+                imageBlob={imageBlob as any}
+                setImageBlob={setImageBlob}
+                />
                 <button className={`w-full bg-orange-600 py-2 rounded-md text-white font-medium hover:bg-orange-700 ${isLoading && "cursor-auto opacity-50 hover:!bg-orange-600"}`} disabled={isLoading} onClick={createUpdate}>
                     {
                         isLoading 
